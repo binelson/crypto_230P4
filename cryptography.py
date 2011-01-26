@@ -68,26 +68,29 @@ def generateKey():
     return newKey
 
 
-# the "generic" key
-key =   "XPMGTDHLYONZBWEARKJUFSCIQV"
+def main():
+    # starting key
+    key =   "XPMGTDHLYONZBWEARKJUFSCIQV"
 
-keepGoing = True
+    keepGoing = True
 
-# show user the menu and perform their request
-while keepGoing:
-    response = menu()
-    if response == "1":
-        plain = raw_input("text to be encoded: ")
-        print encode(key, plain)
-    elif response == "2":
-        coded = raw_input("code to be decyphered: ")
-        print decode(key, coded)
-    elif response == "3":
-        key = generateKey()
-        print "Key Changed!"
-        print "The new key is: " + key
-    elif response == "0":
-        print "Thanks for doing secret spy stuff with me."
-        keepGoing = False    
-    else:
-        print "I don't know what you want to do..."
+    # show user the menu and perform their request
+    while keepGoing:
+        response = menu()
+        if response == "1":
+            plain = raw_input("text to be encoded: ")
+            print encode(key, plain)
+        elif response == "2":
+            coded = raw_input("code to be decyphered: ")
+            print decode(key, coded)
+        elif response == "3":
+            key = generateKey()
+            print "Key Changed!"
+            # print "The new key is: " + key
+        elif response == "0":
+            print "Thanks for doing secret spy stuff with me."
+            keepGoing = False    
+        else:
+            print "I don't know what you want to do..."
+
+main()
